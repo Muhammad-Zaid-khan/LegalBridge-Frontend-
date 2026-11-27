@@ -1,0 +1,82 @@
+::selection {
+  background: rgba(216, 190, 145, 0.5);
+}
+:focus-visible {
+  outline: 2px solid #b8935a;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn,
+  .lawyer-card,
+  .area-card {
+    transition:
+      transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease;
+  }
+  .round-arrow,
+  .card-arrow,
+  .text-link svg,
+  .btn svg,
+  .logo-icon {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .lawyer-portrait {
+    overflow: hidden;
+  }
+  .lawyer-photo {
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* gentle floating cut-out on the appointment banner (uses `translate`, so it
+     never clashes with an existing `transform` on the image) */
+  .appointment-banner-art img {
+    animation: lbFloat 6s ease-in-out infinite;
+  }
+  .appointment-banner-orbit {
+    animation: lbSpin 40s linear infinite;
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+  .btn:active {
+    transform: translateY(0) scale(0.98);
+  }
+  .btn:hover svg {
+    transform: translateX(3px);
+  }
+  .lawyer-card:hover,
+  .area-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 44px rgba(20, 40, 35, 0.14);
+  }
+  .lawyer-card:hover .lawyer-photo {
+    transform: scale(1.06);
+  }
+  .lawyer-card:hover .round-arrow {
+    transform: translate(2px, -2px);
+  }
+  .area-card:hover .card-arrow {
+    transform: translate(3px, -3px);
+  }
+  .text-link:hover svg {
+    transform: translateX(4px);
+  }
+  .logo:hover .logo-icon {
+    transform: rotate(-8deg) scale(1.06);
+  }
+}
+
+@keyframes lbFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -10px; }
+}
+@keyframes lbSpin {
+  to { rotate: 360deg; }
+}

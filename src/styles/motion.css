@@ -1,0 +1,243 @@
+/* ---------- Scroll progress ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #b38b4f, #e7c98f);
+  transform-origin: 0 50%;
+  z-index: 200;
+}
+
+/* ---------- Marquee ---------- */
+.marquee {
+  overflow: hidden;
+  background: #173c38;
+  color: #d8be91;
+  padding: 16px 0;
+  border-top: 1px solid #244943;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+.marquee-track span {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  padding-right: 36px;
+  white-space: nowrap;
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: 20px;
+}
+.marquee-track span::after {
+  content: "✦";
+  font-size: 11px;
+  opacity: 0.55;
+}
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* ---------- Hero 3D scene ---------- */
+.hero-scene {
+  min-height: 458px;
+  position: relative;
+  background: radial-gradient(circle at 62% 42%, #2d5c53 0%, #173c38 68%);
+}
+.hero-canvas,
+.hero-scene-fallback {
+  position: absolute;
+  inset: 0;
+}
+.hero-scene-fallback {
+  background: radial-gradient(circle at 62% 42%, #2d5c53 0%, #173c38 68%);
+}
+
+/* ---------- Spotlight cards ---------- */
+.spotlight {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    circle 260px at var(--mx, 50%) var(--my, 50%),
+    #d8be9138,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.35s;
+  pointer-events: none;
+}
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+/* ---------- Resources page ---------- */
+.res-section {
+  margin-bottom: 72px;
+}
+.res-section h2 {
+  font-family: "DM Serif Display", Georgia, serif;
+  font-weight: 400;
+  font-size: 32px;
+  letter-spacing: -0.4px;
+  margin: 12px 0 0;
+}
+.courts-grid,
+.emergency-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 26px;
+}
+.emergency-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+.court-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.court-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px #163b3512;
+}
+.court-card svg {
+  color: #b38b4f;
+}
+.court-card h3 {
+  font-family: "DM Serif Display", Georgia, serif;
+  font-weight: 400;
+  font-size: 19px;
+  margin: 16px 0 4px;
+}
+.court-card small {
+  color: #95a59a;
+  font-size: 10px;
+  letter-spacing: 0.6px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.journey {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 28px;
+}
+.journey li {
+  position: relative;
+  border-top: 2px solid #dbe5dd;
+  padding: 24px 0 0;
+}
+.journey li::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #b38b4f;
+}
+.journey small {
+  color: #b38b4f;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.journey h3 {
+  font-family: "DM Serif Display", Georgia, serif;
+  font-weight: 400;
+  font-size: 20px;
+  margin: 8px 0 6px;
+}
+.journey p {
+  font-size: 12px;
+  line-height: 1.75;
+  color: #7c8c82;
+  margin: 0;
+}
+.glossary-search {
+  margin-bottom: 22px;
+}
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 40px;
+}
+.term {
+  border-bottom: 1px solid #e3eae3;
+  padding: 18px 0;
+}
+.term > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.term strong {
+  color: #173b35;
+  font-size: 14px;
+}
+.term-ur {
+  font-family: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
+  font-size: 18px;
+  color: #a88b5e;
+}
+.term p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #7c8c82;
+  margin: 6px 0 0;
+}
+.emergency-grid .content-card small {
+  color: #95a59a;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.emergency-grid .content-card strong {
+  display: block;
+  font-family: "DM Serif Display", Georgia, serif;
+  font-weight: 400;
+  font-size: 34px;
+  color: #173b35;
+  margin: 6px 0;
+}
+.matched-on {
+  font-size: 10px;
+  color: #98a69c;
+  margin-top: 10px;
+}
+
+@media (max-width: 1000px) {
+  .courts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 740px) {
+  .courts-grid,
+  .emergency-grid,
+  .glossary-grid {
+    grid-template-columns: 1fr;
+  }
+  .journey {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .marquee-track span {
+    font-size: 17px;
+  }
+}
